@@ -9,6 +9,8 @@ import javax.persistence.EntityTransaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.kloudone.proj.bean.CommentBean;
+import com.kloudone.proj.bean.PostBean;
 import com.kloudone.proj.entity.CommentEntity;
 import com.kloudone.proj.entity.PostEntity;
 
@@ -26,13 +28,13 @@ public class CommentDAOImpl implements CommentDAO{
 			et.begin();
 			entityManager.persist(commententity);
 			et.commit();
-			et.begin();
-			PostEntity postentity=commententity.getPost();
-			ArrayList<CommentEntity> al=new ArrayList<CommentEntity>();
-			al.add((CommentEntity) postentity.getComments());
-			postentity.setComments(al);
-			entityManager.merge(postentity);
-			et.commit();
+//			et.begin();
+//			PostEntity postentity=commententity.getPost();
+//			ArrayList<CommentEntity> al=new ArrayList<CommentEntity>();
+//			al.add((CommentEntity) postentity.getComments());
+//			postentity.setComments(al);
+//			entityManager.merge(postentity);
+//			et.commit();
 			
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -41,5 +43,13 @@ public class CommentDAOImpl implements CommentDAO{
 		}
 		return commententity;
 	}
+
+//	@Override
+//	public CommentBean updatebypost(PostBean postbean) {
+//		// TODO Auto-generated method stub
+//		CommentBean commentbean=new CommentBean();
+//		commentbean.setPost(postbean);
+//		return commentbean;
+//	}
 
 }

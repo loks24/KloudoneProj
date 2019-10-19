@@ -8,41 +8,29 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Your Posts</title>
+<title>Comment</title>
 </head>
 <body>
-<center>
-<h1 style="display:inline-block;">Kloudone Project</h1><br/><br/>
-<h3><a  href="index.jsp">Home</a></h3>
-<h2 align="center">All Questions</h2>
 <jstlcore:forEach items="${postlist}" var="postlist">
-<table>
-<tr><td align="center"><jstlcore:out value="${postlist.title}"></jstlcore:out></td></tr>
-<tr><td align="center"><jstlcore:out value="${postlist.body}"></jstlcore:out></td></tr>
-<tr><td><form action="addcomment.html">
-<input type="hidden" name="postid" value="${postlist.id}"/>
-<button>Add Comment</button>
-</form>
-<%-- <tr><td><a href="addcomment.html?id=${postlist.id}">Add Comment</a> --%>
-</table>
-</jstlcore:forEach>
-<%-- 
-<p>${PostBean.body}</p>
+<jstlcore:set var="pl1" scope="session" value="${postlist.id}"></jstlcore:set>
+<jstlcore:set var="pl2" scope="session" value="${postid}"></jstlcore:set>
+<jstlcore:if test="${pl1==pl2}">
+<p>${postlist.title}</p>
+<p>${postlist.body}</p>
+
+<%-- <p>${PostBean.body}</p>
 <p>${PostBean.title}</p> --%>
-<%-- <f:form action="comment.html" modelAttribute="commentbean">
+<f:form action="comment.html" modelAttribute="commentbean">
     <table>
     <tr><td><label for="Body">Comment</label></td>
     <td><f:textarea path="body" id="Content" name="Content" rows="2" cols="35"/>
     </td></tr>
-    <tr><td><f:hidden path = "post" value = "${PostBean}" /></td></tr>
+    <tr><td><f:hidden path = "postid" value = "${pl1}" /></td></tr>
     <tr><td colspan="1"><button class="button" style="vertical-align:middle"><span>Add Comment </span></button></td></tr>
     
   </table>
-</f:form> --%>
-
- <a href="forum.html">Add Post</a>
-</center>
-
-
+</f:form>
+</jstlcore:if>
+</jstlcore:forEach>
 </body>
 </html>

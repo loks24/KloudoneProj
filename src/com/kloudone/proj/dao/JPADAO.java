@@ -11,5 +11,7 @@ public interface JPADAO extends JpaRepository<PostEntity,String>{
 	
 	@Query("select k from PostEntity k")
 	public List<PostEntity> getPosts();
+	@Query("select k from PostEntity k where k.id=?1")
+	public PostEntity getPostbyid(Long post_id);
 
 }

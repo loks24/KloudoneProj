@@ -8,4 +8,6 @@ public interface CommentService {
 	
 	public CommentBean updateComment(CommentBean commentbean);
 
+//	public CommentBean updatepost(Long postid);
+
 }

@@ -11,7 +11,7 @@
 <center>
 <h1 style="display:inline-block;">Kloudone Project</h1><br/><br/>
 <h3><a  href="index.jsp">Home</a></h3>
-<h2 align="center">Login</h2>
+<h2 align="center">Ask Your Question</h2>
 <f:form action="update.html" modelAttribute="PostBean">
     <table>
     <tr><td><label for="Title">Title</label></td>
@@ -20,7 +20,7 @@
     </td>
 	</tr>
     <tr><td><label for="content">Content</label></td>
-    <td><f:textarea path="body" id="Content" name="Content" rows="20" cols="35"/>
+    <td><f:textarea path="body" id="Content" name="Content" rows="10" cols="60"/>
     </td></tr>
     <tr><td colspan="1"><button class="button" style="vertical-align:middle"><span>Submit </span></button></td></tr>
     <tr><td colspan="2"><font style="font-family:sans serif;" color="red">${message}</font></td></tr>

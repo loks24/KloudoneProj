@@ -25,9 +25,6 @@ public class PostEntity {
     @Column(name = "body", columnDefinition = "TEXT")
     private String body;
 
-   
-    @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
-    private Collection<CommentEntity> comments;
 
     public Long getId() {
         return id;
@@ -54,11 +51,4 @@ public class PostEntity {
     }
 
 
-    public Collection<CommentEntity> getComments() {
-        return comments;
-    }
-
-    public void setComments(Collection<CommentEntity> comments) {
-        this.comments = comments;
-    }
 }

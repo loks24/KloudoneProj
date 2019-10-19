@@ -19,10 +19,13 @@ public class CommentEntity {
     @NotEmpty(message = "*Please write something")
     private String body;
 
-    @ManyToOne
-    @JoinColumn(name = "post_id", referencedColumnName = "post_id", nullable = false)
-    private PostEntity post;
-
+//    @ManyToOne
+//    @JoinColumn(name = "post_id", referencedColumnName = "post_id", nullable = false)
+//    private PostEntity post;
+    
+    @Column(name="post_id")
+    private Long postid;
+    
     public Long getId() {
         return id;
     }
@@ -39,12 +42,14 @@ public class CommentEntity {
         this.body = body;
     }
 
-    public PostEntity getPost() {
-        return post;
-    }
+	public Long getPostid() {
+		return postid;
+	}
 
-    public void setPost(PostEntity post) {
-        this.post = post;
-    }
+	public void setPostid(Long postid) {
+		this.postid = postid;
+	}
+
+
 
 }

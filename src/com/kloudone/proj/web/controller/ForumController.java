@@ -4,13 +4,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -46,6 +50,20 @@ public class ForumController {
 		modelandview.addObject("commentbean",commentbean);
 		return modelandview;
 	}
+	@RequestMapping(value = "addcomment.html",method=RequestMethod.GET)
+	public ModelAndView comment(@RequestParam("postid") Long postid)
+	{
+//		String postid=request.getParameter("id");
+		ModelAndView modelanddview=new ModelAndView();
+		CommentBean commentbean=new CommentBean();
+//		commentbean=commentservice.updatepost(postid);
+		modelanddview.setViewName("comment");
+		modelanddview.addObject("commentbean", commentbean);
+		modelanddview.addObject("postid",postid);
+		return modelanddview;
+	}
+	
+	
 	@ModelAttribute("postlist")
 	public List<PostBean> generateList()  {		
 		List<PostBean> postlist =postservice.getpostlist();		

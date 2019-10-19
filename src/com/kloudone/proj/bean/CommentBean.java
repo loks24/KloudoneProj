@@ -5,7 +5,8 @@ public class CommentBean {
 
     private Long id;
     private String body;
-    private PostBean post;
+//    private PostBean post;
+    private Long postid;
 
     public Long getId() {
         return id;
@@ -23,12 +24,14 @@ public class CommentBean {
         this.body = body;
     }
 
-    public PostBean getPost() {
-        return post;
-    }
+	public Long getPostid() {
+		return postid;
+	}
 
-    public void setPost(PostBean post) {
-        this.post = post;
-    }
+	public void setPostid(Long postid) {
+		this.postid = postid;
+	}
+
+ 
 
 }
