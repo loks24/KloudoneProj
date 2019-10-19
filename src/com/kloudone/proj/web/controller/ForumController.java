@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kloudone.proj.bean.CommentBean;
 import com.kloudone.proj.bean.PostBean;
+import com.kloudone.proj.bean.ReplyBean;
 import com.kloudone.proj.entity.PostEntity;
 import com.kloudone.proj.services.CommentService;
 import com.kloudone.proj.services.PostService;
@@ -76,6 +77,12 @@ public class ForumController {
 		List<CommentBean> commentlist=commentservice.getcommentlist();
 		return commentlist;
 	}
+	@ModelAttribute("replylist")
+	public List<ReplyBean> generateList2()
+	{
+		List<ReplyBean> replylist=commentservice.getreplylist();
+		return replylist;
+	}
 	
 	@RequestMapping(value = "postcomment.html",method=RequestMethod.GET)
 	public ModelAndView showPost(@RequestParam("postid") Long postid)
@@ -83,6 +90,25 @@ public class ForumController {
 		ModelAndView modelandview=new ModelAndView();
 		modelandview.setViewName("postComment");
 		modelandview.addObject("postid",postid);
+		return modelandview;
+	}
+	@RequestMapping(value = "reply.html",method=RequestMethod.GET)
+	public ModelAndView reply(@RequestParam("commentid") Long commentid)
+	{
+		ModelAndView modelandview=new ModelAndView();
+		ReplyBean replybean=new ReplyBean();
+		modelandview.setViewName("reply");
+		modelandview.addObject("replybean",replybean);
+		modelandview.addObject("commentid",commentid);
+		return modelandview;
+	}
+	@RequestMapping(value = "replycomment.html",method=RequestMethod.POST)
+	public ModelAndView replycomment(@ModelAttribute("replybean") ReplyBean replybean,BindingResult result)
+	{
+		ModelAndView modelandview =new ModelAndView();
+		ReplyBean replybean1=commentservice.updateReply(replybean);
+		modelandview.setViewName("display");
+		modelandview.addObject("replybean",replybean);
 		return modelandview;
 	}
 	@RequestMapping(value="comment.html",method=RequestMethod.POST)
@@ -94,5 +120,6 @@ public class ForumController {
 		modelandview.addObject("commentbean",commentbean);
 		return modelandview;
 	}
+	
 
 }

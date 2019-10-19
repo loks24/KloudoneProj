@@ -9,10 +9,12 @@ import org.springframework.stereotype.Service;
 
 import com.kloudone.proj.bean.CommentBean;
 import com.kloudone.proj.bean.PostBean;
+import com.kloudone.proj.bean.ReplyBean;
 import com.kloudone.proj.dao.CommentDAO;
 import com.kloudone.proj.dao.JPADAO;
 import com.kloudone.proj.entity.CommentEntity;
 import com.kloudone.proj.entity.PostEntity;
+import com.kloudone.proj.entity.ReplyEntity;
 
 @Service
 public class CommentServiceImpl implements CommentService{
@@ -40,6 +42,29 @@ public class CommentServiceImpl implements CommentService{
 			CommentBean cb=new CommentBean();
 			BeanUtils.copyProperties(en, cb);
 			li.add(cb);
+		}
+		return li;
+	}
+
+	@Override
+	public ReplyBean updateReply(ReplyBean replybean) {
+		// TODO Auto-generated method stub
+		ReplyEntity replyentity=new ReplyEntity();
+		BeanUtils.copyProperties(replybean, replyentity);
+		ReplyEntity replyentity1=commentdao.updatereply(replyentity);
+		return replybean;
+	}
+
+	@Override
+	public List<ReplyBean> getreplylist() {
+		// TODO Auto-generated method stub
+		List<ReplyEntity> list=jpadao.getReplys();
+		List <ReplyBean> li=new ArrayList<ReplyBean>();
+		for(ReplyEntity en:list)
+		{
+			ReplyBean rb=new ReplyBean();
+			BeanUtils.copyProperties(en, rb);
+			li.add(rb);
 		}
 		return li;
 	}

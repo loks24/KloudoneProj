@@ -29,6 +29,18 @@
 <jstlcore:if test="${pl1==pl2}">
 <h4>Comment</h4>
 <p>${commentlist.body}</p>
+<jstlcore:forEach items="${replylist}" var="replylist">
+<jstlcore:set var="rl1" scope="session" value="${replylist.commentid}"></jstlcore:set>
+<jstlcore:set var="rl2" scope="session" value="${commentlist.id}"></jstlcore:set>
+<jstlcore:if test="${rl1==rl2}">
+<h4>Reply</h4>
+<p>${replylist.body}</p>
+</jstlcore:if>
+</jstlcore:forEach>
+<form action="reply.html">
+<input type="hidden" name="commentid" value="${commentlist.id}"/>
+<button>Add Reply</button>
+</form>
 </jstlcore:if>
 </jstlcore:forEach>
 </body>

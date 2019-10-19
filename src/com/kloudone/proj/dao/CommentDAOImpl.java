@@ -13,6 +13,7 @@ import com.kloudone.proj.bean.CommentBean;
 import com.kloudone.proj.bean.PostBean;
 import com.kloudone.proj.entity.CommentEntity;
 import com.kloudone.proj.entity.PostEntity;
+import com.kloudone.proj.entity.ReplyEntity;
 
 @Repository
 public class CommentDAOImpl implements CommentDAO{
@@ -42,6 +43,23 @@ public class CommentDAOImpl implements CommentDAO{
 			entityManager.close();
 		}
 		return commententity;
+	}
+
+	@Override
+	public ReplyEntity updatereply(ReplyEntity replyentity) {
+		// TODO Auto-generated method stub
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		EntityTransaction et = entityManager.getTransaction();
+		try {
+			et.begin();
+			entityManager.persist(replyentity);
+			et.commit();
+		}catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			entityManager.close();
+		}
+		return replyentity;
 	}
 
 //	@Override
