@@ -70,6 +70,21 @@ public class ForumController {
 		return postlist;
 	}
 	
+	@ModelAttribute("commentlist")
+	public List<CommentBean> generateList1()
+	{
+		List<CommentBean> commentlist=commentservice.getcommentlist();
+		return commentlist;
+	}
+	
+	@RequestMapping(value = "postcomment.html",method=RequestMethod.GET)
+	public ModelAndView showPost(@RequestParam("postid") Long postid)
+	{
+		ModelAndView modelandview=new ModelAndView();
+		modelandview.setViewName("postComment");
+		modelandview.addObject("postid",postid);
+		return modelandview;
+	}
 	@RequestMapping(value="comment.html",method=RequestMethod.POST)
 	public ModelAndView comment(@ModelAttribute("commentbean") CommentBean commentbean,BindingResult result)
 	{

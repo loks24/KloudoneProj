@@ -23,6 +23,10 @@
 <input type="hidden" name="postid" value="${postlist.id}"/>
 <button>Add Comment</button>
 </form>
+<form action="postcomment.html">
+<input type="hidden" name="postid" value="${postlist.id}"/>
+<button>View Post</button>
+</form>
 <%-- <tr><td><a href="addcomment.html?id=${postlist.id}">Add Comment</a> --%>
 </table>
 </jstlcore:forEach>

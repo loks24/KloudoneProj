@@ -1,5 +1,8 @@
 package com.kloudone.proj.services;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +28,20 @@ public class CommentServiceImpl implements CommentService{
 		BeanUtils.copyProperties(commentbean, commententity);
 		CommentEntity commententity1=commentdao.updatecomment(commententity);
 		return commentbean;
+	}
+
+	@Override
+	public List<CommentBean> getcommentlist() {
+		// TODO Auto-generated method stub
+		List<CommentEntity> list=jpadao.getComments();
+		List <CommentBean> li=new ArrayList<CommentBean>();
+		for(CommentEntity en:list)
+		{
+			CommentBean cb=new CommentBean();
+			BeanUtils.copyProperties(en, cb);
+			li.add(cb);
+		}
+		return li;
 	}
 
 //	@Override
