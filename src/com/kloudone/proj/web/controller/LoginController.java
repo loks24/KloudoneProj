@@ -39,6 +39,7 @@ public class LoginController {
 		ModelAndView modelandview=new ModelAndView("signup","signupbean",signupbean);
 		return modelandview;
 	}
+	
 	@RequestMapping(value = "validateLogin.html", method = RequestMethod.POST)
 	public ModelAndView validateLogin(@ModelAttribute @Valid LoginBean loginBean, BindingResult result) throws Exception {		
 			
@@ -51,6 +52,7 @@ public class LoginController {
 			
 			LoginBean login = loginService.validateLogin(loginBean.getUsername());			
 			if(login!= null && loginBean.getPassword().equals(login.getPassword())){
+				modelAndView.addObject("loginuser",loginBean.getUsername());
 				pageName = "Welcome";
 			}
 			else {

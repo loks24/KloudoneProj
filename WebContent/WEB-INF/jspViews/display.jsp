@@ -13,13 +13,18 @@
 <body>
 <center>
 <h1 style="display:inline-block;">Kloudone Project</h1><br/><br/>
-<h3><a  href="index.jsp">Home</a></h3>
+<h2><a  href="welcome.html">Home</a></h2>
+<h2><a  href="index.jsp">Logout</a></h2>
+ <h2><a href="forum.html">Add Post</a></h2>
 <h2 align="center">All Questions</h2>
+<table border="0">
 <jstlcore:forEach items="${postlist}" var="postlist">
-<table>
-<tr><td align="center"><jstlcore:out value="${postlist.title}"></jstlcore:out></td></tr>
+<!-- <table border="1"> -->
+
+<tr><td align="center"><h3><jstlcore:out value="${postlist.title}"></jstlcore:out></h3></td></tr>
+<%-- <tr><td align="center">User:${user}</td></tr> --%>
 <tr><td align="center"><jstlcore:out value="${postlist.body}"></jstlcore:out></td></tr>
-<tr><td><form action="addcomment.html">
+<tr><td align="center"><form action="addcomment.html">
 <input type="hidden" name="postid" value="${postlist.id}"/>
 <button>Add Comment</button>
 </form>
@@ -27,9 +32,11 @@
 <input type="hidden" name="postid" value="${postlist.id}"/>
 <button>View Post</button>
 </form>
+</td></tr>
 <%-- <tr><td><a href="addcomment.html?id=${postlist.id}">Add Comment</a> --%>
-</table>
+<!-- </table> -->
 </jstlcore:forEach>
+</table>
 <%-- 
 <p>${PostBean.body}</p>
 <p>${PostBean.title}</p> --%>
@@ -44,7 +51,7 @@
   </table>
 </f:form> --%>
 
- <a href="forum.html">Add Post</a>
+ <h2><a href="forum.html">Add Post</a></h2>
 </center>
 
 

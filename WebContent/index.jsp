@@ -8,7 +8,7 @@
 </head>
 <body>
 <center>
-<h1>Forum</h1><br/><br/>
+<h1>Kloudone Project</h1><br/><br/>
 
 <h3><a  href="login.html">Login</a></h3>
 <h3><a href="signup.html">SignUP</a></h3>

@@ -10,7 +10,9 @@
 <body>
 <center>
 <h1 style="display:inline-block;">Kloudone Project</h1><br/><br/>
-<h3><a  href="index.jsp">Home</a></h3>
+<h3><a  href="welcome.html">Home</a></h3>
+<h3><a  href="index.jsp">Logout</a></h3>
+<h3><a  href="back.html">All Posts</a></h3>
 <h2 align="center">Ask Your Question</h2>
 <f:form action="update.html" modelAttribute="PostBean">
     <table>

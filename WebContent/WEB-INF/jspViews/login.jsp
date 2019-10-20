@@ -8,8 +8,7 @@
 </head>
 <body>
 <center>
-<h1 style="display:inline-block;">Kloudone Project</h1><br/><br/>
-<h3><a  href="index.jsp">Home</a></h3>
+<h1 >Kloudone Project</h1><br/><br/>
 <h2 align="center">Login</h2>
 <f:form action="validateLogin.html" modelAttribute="loginBean">
     <table>
@@ -26,6 +25,7 @@
     <tr><td colspan="2"><font style="font-family:sans serif;" color="red">${message}</font></td></tr>
   </table>
 </f:form>
+<h3><a href="signup.html">Don't have an account?</a></h3>
 </center>
 
 </body>

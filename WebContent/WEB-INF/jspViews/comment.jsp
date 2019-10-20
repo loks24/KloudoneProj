@@ -11,11 +11,12 @@
 <title>Comment</title>
 </head>
 <body>
+<center>
 <jstlcore:forEach items="${postlist}" var="postlist">
 <jstlcore:set var="pl1" scope="session" value="${postlist.id}"></jstlcore:set>
 <jstlcore:set var="pl2" scope="session" value="${postid}"></jstlcore:set>
 <jstlcore:if test="${pl1==pl2}">
-<p>${postlist.title}</p>
+<h2><p>${postlist.title}</p></h2>
 <p>${postlist.body}</p>
 
 <%-- <p>${PostBean.body}</p>
@@ -32,5 +33,6 @@
 </f:form>
 </jstlcore:if>
 </jstlcore:forEach>
+</center>
 </body>
 </html>

@@ -8,12 +8,14 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Your Posts</title>
+<title>Post</title>
 </head>
 <body>
 <center>
 <h1 style="display:inline-block;">Kloudone Project</h1><br/><br/>
-<h3><a  href="index.jsp">Home</a></h3>
+<h3><a  href="welcome.html">Home</a></h3>
+<h3><a  href="index.jsp">Logout</a></h3>
+<h3><a  href="back.html">Back</a></h3>
 <h2 align="center"></h2>
 <jstlcore:forEach items="${postlist}" var="postlist">
 <jstlcore:set var="pl1" scope="session" value="${postlist.id}"></jstlcore:set>
@@ -29,6 +31,10 @@
 <jstlcore:if test="${pl1==pl2}">
 <h4>Comment</h4>
 <p>${commentlist.body}</p>
+<form action="reply.html">
+<input type="hidden" name="commentid" value="${commentlist.id}"/>
+<button>Add Reply</button>
+</form>
 <jstlcore:forEach items="${replylist}" var="replylist">
 <jstlcore:set var="rl1" scope="session" value="${replylist.commentid}"></jstlcore:set>
 <jstlcore:set var="rl2" scope="session" value="${commentlist.id}"></jstlcore:set>
@@ -37,10 +43,10 @@
 <p>${replylist.body}</p>
 </jstlcore:if>
 </jstlcore:forEach>
-<form action="reply.html">
+<%-- <form action="reply.html">
 <input type="hidden" name="commentid" value="${commentlist.id}"/>
 <button>Add Reply</button>
-</form>
+</form> --%>
 </jstlcore:if>
 </jstlcore:forEach>
 </body>

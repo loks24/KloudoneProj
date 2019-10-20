@@ -120,6 +120,14 @@ public class ForumController {
 		modelandview.addObject("commentbean",commentbean);
 		return modelandview;
 	}
+	@RequestMapping(value = "back.html")
+	public ModelAndView back()
+	{
+		ModelAndView modelandview=new ModelAndView();
+		modelandview.setViewName("display");
+		return modelandview;
+		
+	}
 	
 
 }
