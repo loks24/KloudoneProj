@@ -19,16 +19,28 @@
 
 <%-- <p>${PostBean.body}</p>
 <p>${PostBean.title}</p> --%>
+<%-- <jstlcore:forEach items="${replylist}" var="replylist">
+<jstlcore:set var="rl1" scope="session" value="${replylist.id}"></jstlcore:set>
+<jstlcore:set var="rl2" scope="session" value="${replyid}"></jstlcore:set>
+<jstlcore:if test="${rl1==rl2}"> --%>
+
+
+<jstlcore:set var="rl" scope="session" value="${replyid}"></jstlcore:set>
 <f:form action="replycomment.html" modelAttribute="replybean">
     <table>
     <tr><td><label for="Body">Reply</label></td>
     <td><f:textarea path="body" id="Content" name="Content" rows="2" cols="35"/>
     </td></tr>
+    <tr><td><f:hidden path = "parentid" value ="${rl}" /></td></tr>
     <tr><td><f:hidden path = "commentid" value = "${pl1}" /></td></tr>
+    
     <tr><td colspan="1"><button class="button" style="vertical-align:middle"><span>Add Comment </span></button></td></tr>
     
   </table>
 </f:form>
+
+<%-- </jstlcore:if>
+</jstlcore:forEach> --%>
 </jstlcore:if>
 </jstlcore:forEach>
 </body>

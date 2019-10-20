@@ -41,6 +41,18 @@
 <jstlcore:if test="${rl1==rl2}">
 <h4>Reply</h4>
 <p>${replylist.body}</p>
+<form action="reply1.html">
+<input type="hidden" name="commentid" value="${commentlist.id}"/>
+<input type="hidden" name="replyid" value="${replylist.id}"/>
+<button>Add Reply</button>
+</form><br>
+<%-- <jstlcore:set var="rl3" scope="session" value="${replylist.id}"></jstlcore:set> --%>
+<jstlcore:set var="rl4" scope="session" value="${replylist.parentid}"></jstlcore:set>
+<jstlcore:if test="${!empty rl4}">
+Reply to a Reply
+<h3>${replylist.body}</h3>
+
+</jstlcore:if>
 </jstlcore:if>
 </jstlcore:forEach>
 <%-- <form action="reply.html">

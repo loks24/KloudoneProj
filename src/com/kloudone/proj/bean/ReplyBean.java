@@ -7,8 +7,17 @@ public class ReplyBean {
     private String body;
 //    private PostBean post;
     private Long commentid;
+    private Long parentid;
 
-    public Long getId() {
+    public Long getParentid() {
+		return parentid;
+	}
+
+	public void setParentid(Long parentid) {
+		this.parentid = parentid;
+	}
+
+	public Long getId() {
         return id;
     }
 

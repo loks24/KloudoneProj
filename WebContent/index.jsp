@@ -10,8 +10,8 @@
 <center>
 <h1>Kloudone Project</h1><br/><br/>
 
-<h3><a  href="login.html">Login</a></h3>
-<h3><a href="signup.html">SignUP</a></h3>
+<h2><a  href="login.html">Login</a></h2>
+<h2><a href="signup.html">SignUP</a></h2>
 </center>
 </body>
 </html>

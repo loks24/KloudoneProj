@@ -25,8 +25,18 @@ public class ReplyEntity {
     
     @Column(name="comment_id")
     private Long commentid;
+     @Column(name="parent_id")
+     private Long parentid;
     
-    public Long getId() {
+    public Long getParentid() {
+		return parentid;
+	}
+
+	public void setParentid(Long parentid) {
+		this.parentid = parentid;
+	}
+
+	public Long getId() {
         return id;
     }
 

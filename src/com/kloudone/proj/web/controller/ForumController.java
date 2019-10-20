@@ -102,6 +102,17 @@ public class ForumController {
 		modelandview.addObject("commentid",commentid);
 		return modelandview;
 	}
+	@RequestMapping(value = "reply1.html",method=RequestMethod.GET)
+	public ModelAndView reply1(@RequestParam("replyid") Long replyid,@RequestParam("commentid") Long commentid)
+	{
+		ModelAndView modelandview=new ModelAndView();
+		ReplyBean replybean=new ReplyBean();
+		modelandview.setViewName("reply");
+		modelandview.addObject("replybean",replybean);
+		modelandview.addObject("replyid",replyid);
+		modelandview.addObject("commentid",commentid);
+		return modelandview;
+	}
 	@RequestMapping(value = "replycomment.html",method=RequestMethod.POST)
 	public ModelAndView replycomment(@ModelAttribute("replybean") ReplyBean replybean,BindingResult result)
 	{
